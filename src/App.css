@@ -17,7 +17,15 @@
     border: 1px solid rgba(255, 255, 255, .2);
 }
 
-.forecast-day{
-    border: 1px solid rgba(255, 255, 255, .2);
 
+.forecast-day{
+    /* display: none!important; */
+    border: 1px solid rgba(255, 255, 255, .2);
+ 
+}
+.fa-magnifying-glass{
+    transition: .3s ease-in-out;
+}
+.fa-magnifying-glass:hover{
+    background-color: rgba(255, 255, 255, .3);
 }
