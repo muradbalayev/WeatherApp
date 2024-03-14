@@ -13,7 +13,7 @@ function App() {
     if (searchClicked && location) {
       const fetchData = async () => {
         try {
-          const response = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${import.meta.env.VITE_WEATHER_API}&q=${location}&days=4&aqi=yes&alerts=yes`)
+          const response = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${import.meta.env.VITE_WEATHER_API}&q=${location}&days=4&aqi=yes&alerts=yes`)
           setWeatherData(response.data)
           setError(null);
           console.log(response)
@@ -43,6 +43,7 @@ function App() {
       handleSearch();
     }
   };
+  console.log(import.meta.env.VITE_WEATHER_API)
 
   return (
     <div className='body w-full h-screen mx-auto flex justify-center items-center flex-col '>
@@ -60,7 +61,7 @@ function App() {
             onChange={handleLocationChange}
             onKeyDown={handleKeyDown}
           />
-        <i class="fa-solid fa-magnifying-glass cursor-pointer p-2 rounded-xl absolute right-3 text-white m-2" onClick={handleSearch}></i>
+        <i className="fa-solid fa-magnifying-glass cursor-pointer p-2 rounded-xl absolute right-3 text-white m-2" onClick={handleSearch}></i>
         </div>
         <div className={`weather-container w-full flex flex-col justify-center items-center ${weatherData ? 'expanded' : ''}`}>
           {searchClicked && error && location &&
