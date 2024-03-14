@@ -46,7 +46,7 @@ function App() {
   console.log(import.meta.env.VITE_WEATHER_API)
 
   return (
-    <div className='body w-full h-screen mx-auto flex justify-center items-center flex-col '>
+    <div className='body w-full h-screen mx-auto flex justify-center items-center flex-col overflow-hidden'>
         <h1 className='title font-bold text-4xl text-white'> Hava Proqnozu</h1>
       <div className='app-container w-2/3 px-1 py-5 rounded-2xl mx-auto m-5 flex flex-col items-center justify-center text-center gap-4'>
         <div className='input-container w-2/3 flex justify-center items-center relative p-2' >
@@ -67,7 +67,7 @@ function App() {
           {searchClicked && error && location &&
             <div className="error-container d-flex justify-center items-center p-2 w-100">
               <img src={errorpng} alt="404" width={400} />
-              <h3 className='text-white text-2xl'>Location couldn't found!</h3>
+              <h3 className='text-white text-2xl'>Location not found!</h3>
             </div>
           }
           {searchClicked && weatherData && !error && location && (
