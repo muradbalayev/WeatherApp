@@ -46,13 +46,12 @@ function App() {
   console.log(import.meta.env.VITE_WEATHER_API)
 
   return (
-    <div className='body w-full h-screen mx-auto flex justify-center items-center flex-col overflow-hidden'>
-        <h1 className='title font-bold text-4xl text-white'> Hava Proqnozu</h1>
-      <div className='app-container w-2/3 px-1 py-5 rounded-2xl mx-auto m-5 flex flex-col items-center justify-center text-center gap-4'>
-        <div className='input-container w-2/3 flex justify-center items-center relative p-2' >
-        
+    <div className='body w-full overflow-hidden h-screen mx-auto flex justify-center items-center flex-col'>
+        <h1 className='title font-bold text-4xl text-white m-2'> Hava Proqnozu</h1>
+      <div className='app-container rounded-2xl overflow-y-scroll'>
+        <div className='w-100 px-1 rounded-2xl mx-auto m-5 flex flex-col items-center justify-center text-center gap-4'>
+        <div className='input-container pt-4 flex justify-center items-center relative p-2' >
         <i className="fa-solid fa-location-dot absolute left-3 text-white m-2"></i>
-          
           <input
             className='location-input w-full ps-8 bg-transparent text-white font-medium border rounded-lg outline-none p-3'
             type='text'
@@ -73,7 +72,8 @@ function App() {
           {searchClicked && weatherData && !error && location && (
             <div className='weather-data-container w-full flex flex-wrap justify-evenly'>
               {weatherData.forecast.forecastday.map((day) => (
-                <div className='forecast-day text-center relative text-white flex flex-col justify-center items-center p-5 gap-3 rounded-lg w-1/5' key={day.date}>
+                <div className='forecast-day text-center relative text-white flex flex-col justify-center items-center p-5 mb-3 gap-3 rounded-lg w-52' key={day.date}>
+
                   <h2 className='date'>{day.date}</h2>
                   <img className='weather-icon w-20' src={day.day.condition.icon} alt={day.day.condition.text} />
                   <h3 className='temperature'>{day.day.avgtemp_c}  <span className="text-xs ms-1 absolute">°C</span></h3>
@@ -84,7 +84,7 @@ function App() {
             </div>
           )}
         </div>
-
+</div>
       </div>
     </div>
   )
